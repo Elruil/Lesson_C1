@@ -22,12 +22,12 @@ int GetNumberFromUser(string Message, string errorMessage)
 }
 int GetCountDigits(int num)
 {
-    int count = 0;
+    int sum = 0;
     while (num != 0)
         {
         int lastDigit = num%10;
         num = num/10;
-        count += lastDigit;
+        sum += lastDigit;
     }  
-    return count; 
+    return sum; 
 } 
