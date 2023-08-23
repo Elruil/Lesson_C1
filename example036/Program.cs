@@ -34,3 +34,4 @@ void FillArrayRandomNumbers(int[] numbers)
             numbers[i] = new Random().Next(1,10);
         }
 }
+

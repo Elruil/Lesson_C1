@@ -3,7 +3,7 @@
 //элементов массива.
 Console.Clear();
 
-Console.WriteLine("Задайте размер будущего массива");
+/*Console.WriteLine("Задайте размер будущего массива");
 int size = Convert.ToInt32(Console.ReadLine());
 double[] numbers = new double[size];
 FillArrayRandomNumbers(numbers);
@@ -44,4 +44,17 @@ void FillArrayRandomNumbers(double[] numbers)
         {
             numbers[i] = Convert.ToDouble(new Random().Next(100,1000)) / 100;
         }
+}
+*/
+Console.Clear();
+double[] Array = GetArray(10);
+Console.WriteLine($"Полученный массив {String.Join(" ",Array)}");
+double[] GetArray(int size)
+{
+    double[] arr = new double[size];
+    for (int i = 0; i < size ; i++)
+    {
+        arr[i] = new Random.NextDouble()*10;
+    }    
+    return arr;
 }
