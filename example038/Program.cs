@@ -49,12 +49,38 @@ void FillArrayRandomNumbers(double[] numbers)
 Console.Clear();
 double[] Array = GetArray(10);
 Console.WriteLine($"Полученный массив {String.Join(" ",Array)}");
+double numberMax = GetNumberMax(Array);
+Console.WriteLine($"Максимально число {numberMax}");
+double numberMin = GetNumberMin(Array);
+Console.WriteLine($"Минимальное число {numberMin}");
+double difference = numberMax - numberMin;
+Console.WriteLine($"Рахница между максимальным и минимальным числом равна  {difference}");
 double[] GetArray(int size)
 {
     double[] arr = new double[size];
     for (int i = 0; i < size ; i++)
     {
-        arr[i] = new Random.NextDouble()*10;
+        arr[i] = new Random().NextDouble()*100;
     }    
     return arr;
+}
+double GetNumberMax(double[] arr)
+{
+    double max = 0;
+    foreach(double el in arr)
+    {
+        if (el > max)
+        {max = el;}
+    }
+    return max;
+} 
+double GetNumberMin(double[] arr)
+{
+    double min = arr[0];
+    foreach (double el in arr)
+    {
+    if (el < min)
+    {min = el;}
+    }
+    return min;
 }
