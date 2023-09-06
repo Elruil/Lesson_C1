@@ -1,9 +1,11 @@
-﻿//Решение в группах задач:
-//Задача 49: Задайте двумерный массив. Найдите элементы, у
-//которых оба индекса нечётные, и замените эти элементы на их
-//квадраты.
-
-Console.Clear();
+﻿//Задача 51: Задайте двумерный массив. Найдите сумму
+//элементов, находящихся на главной диагонали (с индексами
+//(0,0); (1;1) и т.д.
+//Например, задан массив:
+//1 4 7 2
+//5 9 2 3
+//8 4 2 4
+//Сумма элементов главной диагонали: 1+9+2 = 12
 
 Console.Clear();
 Console.Write("Введите количество строк массива ");
@@ -13,9 +15,8 @@ int columns = int.Parse(Console.ReadLine() ?? "");
 int[,] Array = GetArray(rows, columns, 0, 10);
 Console.WriteLine($"{rows}  {columns}");
 PrintArray(Array);
-Console.WriteLine("");
-ChangeArray(Array);
-PrintArray(Array);
+int sum = GetSum(Array);
+Console.WriteLine($"Ссума чисел по диагонали равно = {sum}");
 
 int[,] GetArray(int m, int n, int Min, int Max)
 {
@@ -41,21 +42,21 @@ void PrintArray(int[,] arr)
 
     }
 }
-int[,] ChangeArray(int[,] arr)
+int GetSum(int[,] arr)
 {
-    int[,] result = new int[arr.GetLength(0), arr.GetLength(1)];
-     for(int i = 0; i < arr.GetLength(0);i++)
+    int result = 0;
+    for(int i = 0; i < arr.GetLength(0);i++)
     {
         for(int j = 0; j < arr.GetLength(1); j++)
         {
-           if (i%2 != 0 && j%2 != 0)
-           {arr[i,j] = arr[i,j] * arr[i,j];}
+            if ( i == j)
+            {
+                result = arr[i,j] + result;
+            }
         }
     }
     return result;
 
 }
-
-
 
 
