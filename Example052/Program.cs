@@ -9,21 +9,26 @@ Console.Write("Введите количество столбцов массив
 int columns = int.Parse(Console.ReadLine() ?? "");
 int[,] Array = GetArray(rows, columns, 0, 10);
 Console.WriteLine($"{rows}  {columns}");
+Console.WriteLine("");
 PrintArray(Array);
-double ArithmeticMean = GetArithmeticMean(Array);
-Console.WriteLine(ArithmeticMean);
-double GetArithmeticMean(int [,]Arr)
+Console.WriteLine("");
+GetArithmeticMean(Array);
+
+void  GetArithmeticMean(int [,]Arr)
 {
-      int sum = 0;
-    for(int i = 0; i < Arr.GetLength(0);i++)
-    {
-        for(int j = 0; j < Arr.GetLength(1); j++)
+      
+    for(int j = 0; j < Arr.GetLength(1);j++)
+    {   
+        double sum = 0;
+        for(int i = 0; i < Arr.GetLength(0); i++)
         {
             sum = Arr[i,j] + sum;
         }
+        sum = sum/Arr.GetLength(0);
+     Console.Write(sum + "; ");
     }
-    double result = sum;
-    return result;
+    
+  
 }
 
 int[,] GetArray(int m, int n, int Min, int Max)
