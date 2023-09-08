@@ -21,11 +21,11 @@ Console.WriteLine($"Ссума чисел по диагонали равно = {
 int[,] GetArray(int m, int n, int Min, int Max)
 {
     int[,] result = new int[m, n];
-    for(int i = 0; i < m;i++)
+    for (int i = 0; i < m; i++)
     {
-        for(int j = 0; j < n; j++)
+        for (int j = 0; j < n; j++)
         {
-            result[i,j] = new Random().Next(Min, Max + 1);
+            result[i, j] = new Random().Next(Min, Max + 1);
         }
     }
     return result;
@@ -34,9 +34,9 @@ void PrintArray(int[,] arr)
 {
     for (int i = 0; i < arr.GetLength(0); i++)
     {
-        for(int j = 0;j < arr.GetLength(1); j++)
+        for (int j = 0; j < arr.GetLength(1); j++)
         {
-            Console.Write($"{arr[i,j]} ");
+            Console.Write($"{arr[i, j]} ");
         }
         Console.WriteLine();
 
@@ -45,15 +45,19 @@ void PrintArray(int[,] arr)
 int GetSum(int[,] arr)
 {
     int result = 0;
-    for(int i = 0; i < arr.GetLength(0);i++)
+    if(arr.GetLength(0) > arr.GetLength(1))
+    {for (int i = 0; i < arr.GetLength(1); i++)
     {
-        for(int j = 0; j < arr.GetLength(1); j++)
-        {
-            if ( i == j)
-            {
-                result = arr[i,j] + result;
-            }
-        }
+        result = arr[i, i] + result;
+    }
+    }
+    else
+    {
+        {for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        result = arr[i, i] + result;
+    }
+    }
     }
     return result;
 

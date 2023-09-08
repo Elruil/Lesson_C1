@@ -1,6 +1,6 @@
-﻿//Задача 52: Задайте двумерный массив из целых чисел./
-//Найдите среднее арифметическое элементов в каждом
-//столбце.
+﻿//Задача 53: Задайте двумерный массив. Напишите программу,
+//которая поменяет местами первую и последнюю строку
+//массива.
 
 Console.Clear();
 Console.Write("Введите количество строк массива ");
@@ -9,27 +9,10 @@ Console.Write("Введите количество столбцов массив
 int columns = int.Parse(Console.ReadLine() ?? "");
 int[,] Array = GetArray(rows, columns, 0, 10);
 Console.WriteLine($"{rows}  {columns}");
+PrintArray(Array);
+ChangeArrayLine(Array);
 Console.WriteLine("");
 PrintArray(Array);
-Console.WriteLine("");
-GetArithmeticMean(Array);
-
-void  GetArithmeticMean(int [,]Arr)
-{
-      
-    for(int j = 0; j < Arr.GetLength(1);j++)
-    {   
-        double sum = 0;
-        for(int i = 0; i < Arr.GetLength(0); i++)
-        {
-            sum = Arr[i,j] + sum;
-        }
-        sum = sum/Arr.GetLength(0);
-     Console.Write(sum + "; ");
-    }
-    
-  
-}
 
 int[,] GetArray(int m, int n, int Min, int Max)
 {
@@ -43,7 +26,6 @@ int[,] GetArray(int m, int n, int Min, int Max)
     }
     return result;
 }
-
 void PrintArray(int[,] arr)
 {
     for (int i = 0; i < arr.GetLength(0); i++)
@@ -57,5 +39,20 @@ void PrintArray(int[,] arr)
     }
 }
 
-
+void ChangeArrayLine(int[,] Arr)
+{
+    
+    for(int i = 0; i < 1; i++)
+    {
+        for(int j = 0; j < Arr.GetLength(1); j++)
+        {
+            int temp = 0;
+            temp = Arr[i,j];
+            Arr[i,j] = Arr[Arr.GetLength(0) - i - 1, j ];
+            Arr[Arr.GetLength(0) - i - 1, j ] = temp;
+        }
+        
+    }
+    
+}
 
