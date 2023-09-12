@@ -8,14 +8,14 @@ Console.WriteLine("Введите знаения числа N");
 int NumTwo = int.Parse(Console.ReadLine() ?? "");
 Console.Write($"M - {NumOne} ;  N - {NumTwo}");
 
-int Sum = GetSum(NumOne, NumTwo);
-int GetSum(int NumOne, int NumTwo)
+int Result = GetResult(NumOne, NumTwo);
+int GetResult(int NumOne, int NumTwo)
 {
     if(NumOne == 0) return NumTwo + 1;
-    else if ((NumOne != 0) && (NumTwo == 0)) return GetSum(NumOne - 1, 1);
-    else  return GetSum(NumOne - 1, GetSum(NumOne, NumTwo - 1));
+    else if ((NumOne != 0) && (NumTwo == 0)) return GetResult(NumOne - 1, 1);
+    else  return GetResult(NumOne - 1, GetResult(NumOne, NumTwo - 1));
 
 }
 
 
-Console.Write($"  => {Sum}");
+Console.Write($"  => {Result}");
