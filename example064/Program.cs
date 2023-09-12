@@ -16,6 +16,7 @@ if (NumOne > NumTwo)
     NumOne = NumTwo;
     NumTwo = temp;
 }
+Console.WriteLine(GetNat(NumOne, NumTwo));
 string GetNat(int NumOne, int NumTwo)
 {
 
@@ -24,4 +25,3 @@ string GetNat(int NumOne, int NumTwo)
     else return String.Empty;
 
 }
-Console.WriteLine(GetNat(NumOne, NumTwo));
