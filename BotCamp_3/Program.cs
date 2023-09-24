@@ -27,7 +27,7 @@ for(int i = 0; i < array.Length;i++)
          arr[i,j] = array[i];
     }
 }
-int m = 1;
+
 for(int i = 1; i < arr.GetLength(0);i++)
 {
     for (int j = 1; j < arr.GetLength(1); j++)
